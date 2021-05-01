@@ -494,10 +494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugSpellDefend: {fileID: 1662684153}
-  FireSpell: {fileID: 0}
-  AirSpell: {fileID: 0}
-  EarthSpell: {fileID: 0}
-  WaterSpell: {fileID: 0}
   _Color: {fileID: 2100000, guid: 187e76f417fb4aa4382d909fc19f3f47, type: 2}
 --- !u!114 &1705716635
 MonoBehaviour:
@@ -650,7 +646,6 @@ GameObject:
   m_Component:
   - component: {fileID: 425590991245802019}
   - component: {fileID: 3474202257978519467}
-  - component: {fileID: 3247048961085795183}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -693,14 +688,6 @@ MonoBehaviour:
   _RollAngle: 5
   _RollSpeed: 2
   _DefaultLookLimits: {x: -70, y: 70}
---- !u!81 &3247048961085795183
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935384205656752439}
-  m_Enabled: 1
 --- !u!1 &8342995296992951493
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +699,10 @@ GameObject:
   - component: {fileID: 8151191934200576032}
   - component: {fileID: 8613814258520413264}
   - component: {fileID: 522990626734598277}
+  - component: {fileID: 1036899535}
+  - component: {fileID: 1036899534}
+  - component: {fileID: 1036899533}
+  - component: {fileID: 1036899532}
   m_Layer: 0
   m_Name: WorldCamera
   m_TagString: MainCamera
@@ -747,7 +738,7 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
+  m_SensorSize: {x: 70.41, y: 52.63}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
   m_NormalizedViewPortRect:
@@ -757,7 +748,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 3000
   field of view: 75
   orthographic: 0
   orthographic size: 5
@@ -808,3 +799,69 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!124 &1036899535
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342995296992951493}
+  m_Enabled: 1
+--- !u!81 &1036899534
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342995296992951493}
+  m_Enabled: 1
+--- !u!114 &1036899533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342995296992951493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31c048ddcf46df42bd7fd342231d47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_locationProfile: {fileID: 11400000, guid: 6fe1b315b70710248ae17a5cd139c1fc, type: 2}
+  m_camera: {fileID: 8151191934200576032}
+  m_player: {fileID: 4153806748434649800}
+  m_trackPlayer: 0
+  m_bookmarkSettings:
+    m_savedCameraPosition: {x: 0, y: 0, z: 0}
+    m_savedCameraRotation: {x: 0, y: 0, z: 0, w: 1}
+    m_savedPlayerPosition: {x: 0, y: 0, z: 0}
+    m_savedPlayerRotation: {x: 0, y: 0, z: 0, w: 1}
+    m_controllerUsed: Not Been Set
+    m_sceneName: Not Been Set
+  m_selectedBookmark: 0
+  m_bookmarkName: My New Location Name
+  m_rename: 0
+  m_savedName: 
+--- !u!164 &1036899532
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342995296992951493}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -3300
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.54
+  m_ReflectionsLevel: -2560
+  m_ReverbLevel: -229
+  m_ReverbDelay: 0.088
+  m_Diffusion: 79
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 16
