@@ -48,6 +48,9 @@ public class Player : LivingEntity
 
     public Activity Aim = new Activity();
 
+    public Value<bool> HasEarthRune = new Value<bool>(true);
+    public Value<bool> HasWaterRune = new Value<bool>(true);
+
     public Value<DamageType> CurrentAttackElement = new Value<DamageType>(DamageType.Fire);
     public Value<DamageType> CurrentDefenseElement = new Value<DamageType>(DamageType.Fire);
     public Value<DamageType> CurrentUtilityElement = new Value<DamageType>(DamageType.Fire);
