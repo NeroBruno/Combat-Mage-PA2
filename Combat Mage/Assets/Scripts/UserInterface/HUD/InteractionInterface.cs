@@ -34,7 +34,7 @@ public class InteractionInterface : UserInterfaceBehaviour
 			//if (_WeaponSwapping.SwapIcon != null)
 			//{
 			//	bool enableSwapUI = false;
-			//	_MainText.text = _RaycastData.InteractiveObject.InteractionText;
+			_MainText.text = _RaycastData.InteractiveObject.InteractionText;
 
 			//	// Current item
 			//	SaveableItem currentItem = Player.EquippedItem.Get();
