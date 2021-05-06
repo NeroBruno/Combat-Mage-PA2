@@ -7,8 +7,13 @@ using UnityEngine;
 /// </summary>
 public class PlayerInput_PC : PlayerComponent
 {
+   public  bool hasEarthRune;
+    public bool hasAirRune;
+    public bool hasFireRune;
+    public bool hasWaterRune;
     private void Update()
     {
+    
         if (!Player.Pause.Active && Player.ViewLocked.Is(false))
         {
 
@@ -29,8 +34,9 @@ public class PlayerInput_PC : PlayerComponent
 
             // Spell Binding
             // FIRE
-            if (Input.GetButtonDown("FireRune") || Input.GetButton("FireRune"))        
+            if ((Input.GetButtonDown("FireRune") || Input.GetButton("FireRune")) && hasFireRune)
             {
+                
                 if (Input.GetButtonDown("AttackSpell"))
                     Player.CurrentAttackElement.Set(DamageType.Fire);
                 else if (Input.GetButtonDown("DefenseSpell"))
@@ -39,7 +45,7 @@ public class PlayerInput_PC : PlayerComponent
                     Player.CurrentUtilityElement.Set(DamageType.Fire);
             }
             // AIR
-            else if (Input.GetButtonDown("AirRune") || Input.GetButton("AirRune"))   
+            else if ((Input.GetButtonDown("AirRune") || Input.GetButton("AirRune")) && hasAirRune)   
             {
                 if (Input.GetButtonDown("AttackSpell"))
                     Player.CurrentAttackElement.Set(DamageType.Air);
@@ -49,7 +55,7 @@ public class PlayerInput_PC : PlayerComponent
                     Player.CurrentUtilityElement.Set(DamageType.Air);
             }
             // EARTH
-            else if (Input.GetButtonDown("EarthRune") || Input.GetButton("EarthRune"))  
+            else if ((Input.GetButtonDown("EarthRune") || Input.GetButton("EarthRune"))&& hasEarthRune)  
             {
                 if (Input.GetButtonDown("AttackSpell"))
                     Player.CurrentAttackElement.Set(DamageType.Earth);
@@ -59,7 +65,7 @@ public class PlayerInput_PC : PlayerComponent
                     Player.CurrentUtilityElement.Set(DamageType.Earth);
             }
             // WATER
-            else if (Input.GetButtonDown("WaterRune") || Input.GetButton("WaterRune"))  
+            else if ((Input.GetButtonDown("WaterRune") || Input.GetButton("WaterRune"))&& hasWaterRune)  
             {
                 if (Input.GetButtonDown("AttackSpell"))
                     Player.CurrentAttackElement.Set(DamageType.Water);
