@@ -225,6 +225,17 @@ MonoBehaviour:
     sessionPlaybackState: 1
     m_terrainsFoldedOut: 0
     m_serializedExternalAction: 
+  - m_description: Spawning - Gaia Pro Sample-Texture(Clone)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20210422 - 025259
+    m_operationDateTime: 5/7/2021 4:28:12 PM
+    scriptableObjectAssetGUID: bd92b8d1942aa2245a4c73c2f88bdc52
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
   m_terrainMinMaxCache:
   - guid: 3fee1e775360faf458d4b57363b2ea6c
     isWorldmap: 0
@@ -235,6 +246,6 @@ MonoBehaviour:
     isWorldmap: 0
     recalculate: 0
     min: 0
-    max: 221.84714
+    max: 221.92526
   m_bakedMaskCacheEntries: []
   m_worldBiomeMaskSettings: {fileID: 0}
