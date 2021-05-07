@@ -48,6 +48,8 @@ public class Player : LivingEntity
 
     public Activity Aim = new Activity();
 
+    public Value<bool> HasFireRune = new Value<bool>(true);
+    public Value<bool> HasAirRune = new Value<bool>(true);
     public Value<bool> HasEarthRune = new Value<bool>(false);
     public Value<bool> HasWaterRune = new Value<bool>(false);
 
