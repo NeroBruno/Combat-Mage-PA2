@@ -14,8 +14,9 @@ public class Patrolling_Nav : MonoBehaviour
     public RaycastHit Los;
     float TimetoShoot,ShotCd = 5f;
     public LayerMask Whatisplayer;
-    public Color RadiuscheckColor;
     public TriggerSensor sensor;
+    float rotspeed = 5f,hurtwindup =0f;
+    [SerializeField] bool isMelee;
 
 
     public GameObject projectile;
@@ -65,11 +66,23 @@ public class Patrolling_Nav : MonoBehaviour
             case states.chasing:
 
                 Chase();
+                if(agent.remainingDistance < 15)
+                {
+                    CloseEnough();
+                }
 
             break;
 
             case states.atacking:
-                RangeAtack();
+                
+                if (isMelee)
+                {
+                    MeleeAtack();
+                }
+                else
+                {
+                    RangeAtack();
+                }
             break;
 
 
@@ -100,7 +113,7 @@ public class Patrolling_Nav : MonoBehaviour
     #region chase
     void Chase(){
         //atualizar onde o ai vai tentar ir
-        if(Vector3.Distance(agent.destination,targetCharacter.position)> 1.0f){
+        if(Vector3.Distance(agent.destination,targetCharacter.position) > 1.0f){
                 agent.destination = targetCharacter.position;
         }
     }
@@ -110,13 +123,15 @@ public class Patrolling_Nav : MonoBehaviour
     #region atack
     void RangeAtack()
     {
-        if (agent.remainingDistance > 10)
+        agent.destination = targetCharacter.position;
+        if (agent.remainingDistance > 20f)
         {
             agent.isStopped = false;
             currentState = states.chasing;
+            Debug.Log("a  tentar dar trigger a chase");
         }
-        else { 
-
+        else {
+            RotateTowards(targetCharacter);
         //ver se está perto demais
         if (agent.remainingDistance < 8)
             {
@@ -131,12 +146,39 @@ public class Patrolling_Nav : MonoBehaviour
         }
     }
 
+    void MeleeAtack()
+    {
+        agent.destination = targetCharacter.position;
+        RotateTowards(targetCharacter);
+        if(agent.remainingDistance < 2)
+        {
+            hurtwindup += Time.deltaTime;
+            agent.isStopped = true;
+        }
+        else
+        {
+            hurtwindup = 0f;
+            agent.isStopped = false;
+        }
+
+        if(hurtwindup > 2f)
+        {
+            hurtPlayer();
+        }
+    }
+
+    void hurtPlayer()
+    {
+        Debug.Log("hurting");
+        hurtwindup = 0f;
+    }
+
     void Shoot()
     {
         Vector3 shotDirection = targetCharacter.transform.position - Barrel.transform.position;
         GameObject currentShot = Instantiate(projectile, Barrel.transform.position, Quaternion.identity);
 
-        currentShot.GetComponent<Rigidbody>().AddForce(shotDirection.normalized * 10, ForceMode.Impulse);
+        currentShot.GetComponent<Rigidbody>().AddForce(shotDirection.normalized * 30, ForceMode.Impulse);
         TimetoShoot = ShotCd;
     }
 
@@ -153,5 +195,14 @@ public class Patrolling_Nav : MonoBehaviour
     {
         currentState = states.atacking;
     }
+
+
+    private void RotateTowards(Transform target)
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotspeed);
+    }
+
     #endregion
 }
