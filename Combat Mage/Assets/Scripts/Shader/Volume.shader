@@ -2,7 +2,7 @@ Shader "Custom/Volume"
 {
     Properties
     {
-        _MainTex ("Albedo (RGB)", 2D) = "black" {}
+        _MainTex ("Albedo (RGB)", 3D) = "black" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _MarchSteps("March steps", Range(1, 100)) = 100
@@ -76,7 +76,7 @@ Shader "Custom/Volume"
 	 for (int i = 0; i < _MarchSteps; i++) { //Loop de maximo de passos
 		 currentPos += View * _MarchStepsSize; //Utiliza uma posiçao do raio
 
-		 float noise = tex3D(_MainTex, currentPos + _Time.xxx).r;
+		 float noise = tex3D(_MainTex, currentPos*0.1 + _Time.xxx).r;
 		 if (noise > _MediumThreshold && isInsidePlane(currentPos))
 			 density += _MarchStepValue * noise;
 	 }
