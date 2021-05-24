@@ -11,6 +11,8 @@ public class RockMove : MonoBehaviour
     public float push;
     bool isheld;
     public Transform player;
+    //public static bool isMoving;
+    static Transform movingRock;
 
     // Start is called before the first frame update
     void Start()
@@ -23,31 +25,39 @@ public class RockMove : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        //Hold donw the key E when it closer to the rigybody.
-        if (Input.GetKey(KeyCode.P))
+        //Hold donw the key P when it closer to the rigybody.
+        if (Input.GetKeyDown(KeyCode.P) && (movingRock == null || movingRock == transform) )
         {
             
-
-            if (!isheld)
+Debug.Log(isheld);
+            if (!isheld && Vector3.Distance(transform.position, player.position) < 1.5f)
             {
                 isheld = true;
                 //this.Rock.us = false; //Allows to grab and lift objects
                 transform.parent = player.transform;
                 //Coloca-se o objecto a frente do jogador 
                 transform.position = player.position + player.forward * 2;
-        
+                //isMoving = true;
+                movingRock = transform;
+
+
             }
-            else
+            else if(isheld==true)
             {
+                
                 isheld = false;
                 //this.Rock.useGravity = true;
                 transform.parent = null;
+                //isMoving = false;
+                movingRock = null;
             }
 
 
 
 
         }
+
+     
 
         if(isheld)
         {

@@ -94,6 +94,12 @@ public class DirectionBox : MonoBehaviour
         {
             Debug.Log("Experience sucefulll");
         }
+
+        //See if Box is colliding with the correct swicth.To do so it use a different case(In this case the Tag Puzzle)
+        if (collision.CompareTag("Spikes"))
+        {
+            Debug.Log("Taking Damage");
+        }
     }
 
     
