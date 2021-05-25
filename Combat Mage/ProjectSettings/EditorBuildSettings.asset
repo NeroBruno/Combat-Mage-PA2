@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e9e6e32cbee51354799de39b766935e8
+  - enabled: 0
+    path: Assets/Scenes/TestGameScene.unity
+    guid: 3df475c788caaf74ab8a1bf325b112d5
+  - enabled: 1
     path: Assets/Scenes/Combat Test Bruno.unity
     guid: 8f9084b5a6de7b24088729cdfb8f7cdb
   - enabled: 0
