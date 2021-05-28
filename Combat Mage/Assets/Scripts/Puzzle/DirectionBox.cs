@@ -10,6 +10,8 @@ public class DirectionBox : MonoBehaviour
     public float push;
     bool isheld;
     public Transform player;
+    public Reward reward;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class DirectionBox : MonoBehaviour
     private void FixedUpdate()
     {
           //Hold donw the key E when it closer to the rigybody.
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && Vector3.Distance(player.position,transform.position)<2.0f)
         {
             #region comment
             
@@ -86,14 +88,18 @@ public class DirectionBox : MonoBehaviour
         //See if Box is colliding with the correct swicth.To do so it use a different case(In this case the Tag Puzzle)
         if(collision.CompareTag("Puzzle"))
         {
-            Debug.Log("Experience sucefulll");
+            Debug.Log("Puzzle one set");
+            reward.RedPuzzle();
         }
 
         //Same as 
         if(collision.CompareTag("Puzzle2"))
         {
-            Debug.Log("Experience sucefulll");
+            Debug.Log("Puzzle two set");
+            reward.BluePuzzle();
         }
+
+
 
         //See if Box is colliding with the correct swicth.To do so it use a different case(In this case the Tag Puzzle)
         if (collision.CompareTag("Spikes"))
