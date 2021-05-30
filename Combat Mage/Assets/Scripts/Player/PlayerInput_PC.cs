@@ -78,7 +78,7 @@ public class PlayerInput_PC : PlayerComponent
             }
             if (Input.GetKeyDown(KeyCode.O))
             {
-                HealthEventData damage = new HealthEventData(-20, DamageType.Earth, sourcetest);
+                HealthEventData damage = new HealthEventData(-20, DamageType.Earth);
                 Player.ChangeHealth.Try(damage);
             }
 
@@ -99,6 +99,4 @@ public class PlayerInput_PC : PlayerComponent
             Player.LookInput.Set(Vector2.zero);
         }
     }
-
-    public LivingEntity sourcetest = null;
 }

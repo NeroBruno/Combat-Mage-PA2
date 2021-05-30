@@ -409,7 +409,7 @@ MonoBehaviour:
   Hitboxes: []
   _AudioSource: {fileID: 6684090155470166351}
   _Animator: {fileID: 0}
-  _Camera: {fileID: 1358223372778507671}
+  _Camera: {fileID: 0}
 --- !u!114 &8176675685878582833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5ee376b89b3674eaf671d05478c33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourcetest: {fileID: 0}
 --- !u!114 &6746586978450100531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5558654833574995330}
-  - component: {fileID: 1358223372778507671}
+  - component: {fileID: 1036899533}
   m_Layer: 0
   m_Name: WorldCamera_ROOT
   m_TagString: Untagged
@@ -624,7 +623,7 @@ Transform:
   m_Father: {fileID: 425590991245802019}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1358223372778507671
+--- !u!114 &1036899533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -636,6 +635,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7454cb65d4631644ba4b537763a21aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Camera: {fileID: 8613814258520413264}
+  m_Player: {fileID: 5137551032361675319}
+  m_Springs:
+    SpringLerpSpeed: 25
+    ForceSprings:
+      Position:
+        Stiffness: {x: 0.1, y: 0.1, z: 0.1}
+        Damping: {x: 0.25, y: 0.25, z: 0.25}
+      Rotation:
+        Stiffness: {x: 0.1, y: 0.1, z: 0.1}
+        Damping: {x: 0.25, y: 0.25, z: 0.25}
+    HeadbobSprings:
+      Position:
+        Stiffness: {x: 0.1, y: 0.1, z: 0.1}
+        Damping: {x: 0.25, y: 0.25, z: 0.25}
+      Rotation:
+        Stiffness: {x: 0.1, y: 0.1, z: 0.1}
+        Damping: {x: 0.25, y: 0.25, z: 0.25}
+  m_Headbobs:
+    WalkHeadbob:
+      PosAmplitude: {x: 0.35, y: 0.5, z: 0}
+      RotationAmplitude: {x: 0.35, y: 0.5, z: 0}
+      HeadBobSpeed: 1
+    CrouchHeadbob:
+      PosAmplitude: {x: 0.35, y: 0.5, z: 0}
+      RotationAmplitude: {x: 0.35, y: 0.5, z: 0}
+      HeadBobSpeed: 1
+    RunHeadbob:
+      PosAmplitude: {x: 0.35, y: 0.5, z: 0}
+      RotationAmplitude: {x: 0.35, y: 0.5, z: 0}
+      HeadBobSpeed: 1
+  m_CamShakes:
+    ShakeSpringSettings:
+      Stiffness: {x: 0, y: 0, z: 0}
+      Damping: {x: 0, y: 0, z: 0}
+    ExplosionShake:
+      PositionAmplitude: {x: 0, y: 0, z: 0}
+      RotationAmplitude: {x: 0, y: 0, z: 0}
+      Decay:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      Duration: 2
+      Speed: 1
+    DeathShake:
+      PositionAmplitude: {x: 0, y: 0, z: 0}
+      RotationAmplitude: {x: 0, y: 0, z: 0}
+      Decay:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      Duration: 2
+      Speed: 1
+  m_FallImpact:
+    FallImpactRange: {x: 0, y: 0}
+    PosForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    RotForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+  m_JumpForce:
+    PosForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    RotForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+  m_GettingHitForce:
+    PosForce: 0
+    RotForce: 0
 --- !u!1 &7935384205656752439
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +811,7 @@ GameObject:
   - component: {fileID: 522990626734598277}
   - component: {fileID: 1036899535}
   - component: {fileID: 1036899534}
-  - component: {fileID: 1036899533}
+  - component: {fileID: 2306625525503804113}
   - component: {fileID: 1036899532}
   m_Layer: 0
   m_Name: WorldCamera
@@ -815,7 +925,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8342995296992951493}
   m_Enabled: 1
---- !u!114 &1036899533
+--- !u!114 &2306625525503804113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
