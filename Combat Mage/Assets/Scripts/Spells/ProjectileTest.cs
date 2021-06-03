@@ -25,7 +25,10 @@ public class ProjectileTest : MonoBehaviour
 
         //    Destroy(gameObject);
         //}
-
+        if (collision.gameObject.tag == "Minion")
+        {
+            collision.gameObject.GetComponent<AI_Health_src>().takeDamage(25);
+        }
         if (collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Player" && !isCollided)
         {
             Destroy(gameObject);

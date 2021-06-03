@@ -10,10 +10,13 @@ public class Minion_scr : MonoBehaviour
 {
 
     public NavMeshAgent gent;
-    float rotspeed = 5f, hurtwindup = 0f,acTime,currTime;
+    float rotspeed = 5f, hurtwindup = 0f, acTime, currTime;
     public LayerMask Whatisplayer;
     [HideInInspector] public Transform targetCharacter;
     bool trigger;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,40 +29,47 @@ public class Minion_scr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (trigger == true)
-        {
-            gent.destination = targetCharacter.position;
-            RotateTowards(targetCharacter);
-            if (gent.remainingDistance < 2)
+            if (trigger == true)
             {
-                hurtwindup += Time.deltaTime;
-                gent.isStopped = true;
+                gent.destination = targetCharacter.position;
+                RotateTowards(targetCharacter);
+                if (gent.remainingDistance < 2)
+                {
+                    hurtwindup += Time.deltaTime;
+                    gent.isStopped = true;
+                }
+                else
+                {
+                    hurtwindup = 0f;
+                    gent.isStopped = false;
+                }
+
+                if (hurtwindup > 2f)
+                {
+                    hurtPlayer();
+                }
             }
             else
             {
-                hurtwindup = 0f;
-                gent.isStopped = false;
+                currTime += Time.deltaTime;
+                if (currTime > acTime)
+                {
+                    trigger = true;
+                    gent.enabled = true;
+                    gent.Warp(this.transform.position);
+                }
             }
-
-            if (hurtwindup > 2f)
-            {
-                hurtPlayer();
-            }
-        }
-        else {
-            currTime += Time.deltaTime;
-            if (currTime > acTime) {
-                trigger = true;
-                gent.enabled = true;
-                gent.Warp(this.transform.position);
-            }
-        }
     }
+
 
     void hurtPlayer()
     {
+        GameObject player = GameObject.Find("Player");
+        player.GetComponent<Player_HP>().takeDamage(10);
         Debug.Log("hurting");
+        Debug.Log(player.GetComponent<Player_HP>().currentHP);
         hurtwindup = 0f;
+
     }
 
     private void RotateTowards(Transform target)

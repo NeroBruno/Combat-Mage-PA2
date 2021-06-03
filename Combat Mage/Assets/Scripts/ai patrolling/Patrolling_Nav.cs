@@ -170,8 +170,12 @@ public class Patrolling_Nav : MonoBehaviour
 
     void hurtPlayer()
     {
+        GameObject player = GameObject.Find("Player");
+        player.GetComponent<Player_HP>().takeDamage(10);
         Debug.Log("hurting");
+        Debug.Log(player.GetComponent<Player_HP>().currentHP);
         hurtwindup = 0f;
+
     }
 
     void Shoot()
