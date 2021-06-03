@@ -11,6 +11,7 @@ public class DirectionBox : MonoBehaviour
     bool isheld;
     public Transform player;
     public Reward reward;
+    public Transform posiction;
     
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,10 @@ public class DirectionBox : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
           //Hold donw the key E when it closer to the rigybody.
-        if(Input.GetKeyDown(KeyCode.E) && Vector3.Distance(player.position,transform.position)<2.0f)
+        if(Input.GetKey(KeyCode.E) && Vector3.Distance(player.position,transform.position)<5.0f)
         {
             #region comment
             
@@ -62,21 +63,23 @@ public class DirectionBox : MonoBehaviour
                 //this.RigiBox1.useGravity = false; //Allows to grab and lift objects
 
             //Allows to move the player while 
-                transform.parent = player.transform;
-            //}
-         //else
-         //   {
-                //isheld = false;
-                //this.RigiBox1.useGravity = true;
-        
-            //}
-         
-         
-          
+                transform.SetParent(posiction);
+
             
+            //}
+            //else
+            //   {
+            //isheld = false;
+            //this.RigiBox1.useGravity = true;
+
+            //}
+
+
+
+
         }
 
-        if(Input.GetKeyUp(KeyCode.E))
+        else if(Input.GetKeyUp(KeyCode.E))
         {
             transform.parent = null;
         }
@@ -97,6 +100,12 @@ public class DirectionBox : MonoBehaviour
         {
             Debug.Log("Puzzle two set");
             reward.BluePuzzle();
+        }
+
+        if (collision.CompareTag("Puzzle3"))
+        {
+            Debug.Log("Layborith Solved");
+            reward.GreenPuzzle();
         }
 
 

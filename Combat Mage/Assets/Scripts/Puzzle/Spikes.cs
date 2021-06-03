@@ -15,14 +15,20 @@ public class Spikes : MonoBehaviour
     {
         
     }
+    
 
-    private void OnTriggerEnter(Collider collision)
+    // This one is not working atm just because the healthpickup object does not have a collider
+    private void OnTriggerStay(Collider collision)
     {
-        //See if Box is colliding with the correct swicth.To do so it use a different case(In this case the Tag Puzzle)
-        if (collision.CompareTag("Spikes"))
-        {
-            Debug.Log("Experience sucefulll");
-        }
 
+        if (collision.CompareTag("Player"))
+        {
+            Player player = collision.GetComponent<Player>();
+            HealthEventData heath = new HealthEventData(-0.1f);
+            player.ChangeHealth.Try(heath);
+
+         
+        }
     }
+
 }
