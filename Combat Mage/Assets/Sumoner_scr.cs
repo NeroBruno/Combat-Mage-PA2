@@ -51,7 +51,7 @@ public class Sumoner_scr : MonoBehaviour
     {
         //GameObject prefab;
         //prefab = PrefabToSpawn;
-        Instantiate(PrefabToSpawn, sLocation);
+        Instantiate(PrefabToSpawn, sLocation); 
         Debug.Log("Trying to spawn");
     }
 
