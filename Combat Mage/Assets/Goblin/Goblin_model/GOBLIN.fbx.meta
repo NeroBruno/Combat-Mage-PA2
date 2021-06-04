@@ -2250,12 +2250,27 @@ ModelImporter:
   - first:
       137: 13700006
     second: Sphere_001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__Goblin_diffuse_png
+    second: {fileID: 2100000, guid: 0a80ec27cd664334f89063e7cb27b58d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RetopoGroup1_Default__Goblin_diffuse_png
+    second: {fileID: 2100000, guid: 8807c49485f3cd743b345c61254733f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RetopoGroup2_armor_lite__Goblin_lite_armor_armor_color_png
+    second: {fileID: 2100000, guid: 62224c473a0fd6545bc8a4b47cbf0e31, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -2687,7 +2702,7 @@ ModelImporter:
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
