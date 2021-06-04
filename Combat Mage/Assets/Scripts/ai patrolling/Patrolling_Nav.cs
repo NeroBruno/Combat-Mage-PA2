@@ -48,11 +48,13 @@ public class Patrolling_Nav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        Debug.Log("destinos :" + MoveDestinations.Length);
         switch(currentState)
         {
             case states.patrolling:
 
-                if(agent.remainingDistance < 1)
+                if(agent.remainingDistance < 2)
                 {
                         CycleDestinations();
                 }
