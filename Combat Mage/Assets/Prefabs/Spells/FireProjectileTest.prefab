@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3d593edf1dfff48b983579270a4d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 5137551032361675319, guid: 0d478ab0e28ad554f95cb08978f4d84c, type: 3}
 --- !u!1 &3922798705189723763
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +214,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3922798705189723764}
-  - component: {fileID: 3922798705189723766}
-  - component: {fileID: 3922798705189723765}
+  - component: {fileID: 2694370770980231861}
+  - component: {fileID: 4117110424094065378}
   m_Layer: 0
   m_Name: MagicOrb
   m_TagString: Untagged
@@ -238,7 +237,7 @@ Transform:
   m_Father: {fileID: 3922798704413058404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &3922798705189723766
+--- !u!198 &2694370770980231861
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5002,7 +5001,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &3922798705189723765
+--- !u!199 &4117110424094065378
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
