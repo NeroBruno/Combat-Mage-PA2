@@ -14,12 +14,14 @@ public class Minion_scr : MonoBehaviour
     public LayerMask Whatisplayer;
     [HideInInspector] public Transform targetCharacter;
     bool trigger;
+    Animator anim;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         trigger = false;
         targetCharacter = GameObject.Find("Player").transform;
         acTime = 1f;
@@ -37,6 +39,7 @@ public class Minion_scr : MonoBehaviour
                 {
                     hurtwindup += Time.deltaTime;
                     gent.isStopped = true;
+                    anim.SetTrigger("MeleeAttack");
                 }
                 else
                 {

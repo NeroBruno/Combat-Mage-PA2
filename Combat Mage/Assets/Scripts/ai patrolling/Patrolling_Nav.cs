@@ -17,24 +17,26 @@ public class Patrolling_Nav : MonoBehaviour
     public TriggerSensor sensor;
     float rotspeed = 5f,hurtwindup =0f;
     [SerializeField] bool isMelee;
+    Animator anim;
 
 
     public GameObject projectile;
 
     public float radius = 5f;
     
-    enum states
+    public enum states
     {
         patrolling,
         chasing,
         atacking
     }
 
-    states currentState;
+    public states currentState;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentState  = states.patrolling;
 
         currentPatroldestination = 0;
@@ -149,7 +151,7 @@ public class Patrolling_Nav : MonoBehaviour
         }
     }
 
-    void MeleeAtack()
+    public void MeleeAtack()
     {
         agent.destination = targetCharacter.position;
         RotateTowards(targetCharacter);
@@ -157,6 +159,7 @@ public class Patrolling_Nav : MonoBehaviour
         {
             hurtwindup += Time.deltaTime;
             agent.isStopped = true;
+            anim.SetTrigger("MeleeAttack");
         }
         else
         {
@@ -170,7 +173,7 @@ public class Patrolling_Nav : MonoBehaviour
         }
     }
 
-    void hurtPlayer()
+    public void hurtPlayer()
     {
         GameObject player = GameObject.Find("Player");
         player.GetComponent<Player_HP>().takeDamage(10);
