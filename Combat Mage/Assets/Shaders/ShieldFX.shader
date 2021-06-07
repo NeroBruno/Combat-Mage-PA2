@@ -14,7 +14,7 @@ Shader "Unlit/ShieldFX"
 	}
 	SubShader
 	{ 
-		Tags{ "Queue" = "Overlay" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 
 		GrabPass{ "_GrabTexture" }
 		Pass
@@ -22,10 +22,11 @@ Shader "Unlit/ShieldFX"
 			Lighting Off ZWrite On
 			Blend SrcAlpha OneMinusSrcAlpha
 			Cull Off
+			LOD 100
 
 			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+			#pragma vertex vert alpha
+			#pragma fragment frag alpha
 			#include "UnityCG.cginc"
 
 			struct appdata
