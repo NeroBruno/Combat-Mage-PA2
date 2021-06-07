@@ -165,6 +165,7 @@ public class Patrolling_Nav : MonoBehaviour
         {
             hurtwindup = 0f;
             agent.isStopped = false;
+            anim.ResetTrigger("MeleeAttack");
         }
 
         if(hurtwindup > 2f)

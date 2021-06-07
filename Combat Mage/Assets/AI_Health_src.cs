@@ -25,11 +25,18 @@ public class AI_Health_src : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHP < 0)
+        if (currentHP <= 0)
         {
-            //nav.agent.velocity = new Vector3(0,0,0); // stopping the navigation agent from moving, dies in place
-            navAgent.velocity = new Vector3(0, 0, 0); // stopping the navigation agent from moving, dies in place
-            Destroy(this.gameObject, 4f);
+            if (gameObject.tag == "Summoner") // se for o Summoner (n tem navMeshAgent)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                nav.agent.velocity = new Vector3(0,0,0); // stopping the navigation agent from moving, dies in place
+                navAgent.isStopped = true; // stopping the navigation agent from moving, dies in place
+                Destroy(this.gameObject, 4f);
+            }
         }
     }
 

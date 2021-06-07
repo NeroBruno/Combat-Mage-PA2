@@ -11,9 +11,15 @@ public class Sumoner_scr : MonoBehaviour
     [SerializeField] Transform sLocation;
     [SerializeField] GameObject PrefabToSpawn;
     float cTime;
+
+    // Spider Egg (Texture and animation)
+
+    [SerializeField] EggController spiderEgg;
+
     // Start is called before the first frame update
     void Start()
     {
+        spiderEgg = GetComponentInChildren<EggController>();
         cTime = 0f;
         detected = false;
     }
@@ -29,6 +35,7 @@ public class Sumoner_scr : MonoBehaviour
             if(det != null)
             {
                 detected = true;
+                spiderEgg.Destroy();
                 Debug.Log("hello");
             }
         }

@@ -16,6 +16,7 @@ TagManager:
   - Puzzle2
   - Puzzle3
   - Minion
+  - Summoner
   layers:
   - Default
   - TransparentFX

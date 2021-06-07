@@ -25,16 +25,16 @@ public class MeleeAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (goblin.currentState.Equals(Patrolling_Nav.states.chasing))
-        //{
-        //    anim.SetBool("spotPlayer", true);
-
-        //}
-
-        if (minion.remainingDistance < 5)
+        if (goblin.currentState.Equals(null) && minion.remainingDistance < 5)
         {
             anim.SetBool("hitOnce", true);
         }
+        // Dps do Goblin morrer, isto dá erro. Como corrigir?
+        else if (goblin.currentState.Equals(Patrolling_Nav.states.chasing))
+            {
+                anim.SetBool("spotPlayer", true);
+
+            }
 
 
         // Como usar o MeleeAttack corretamente? Como chamar aqui a animação apenas qd o ataque é executado?

@@ -45,6 +45,7 @@ public class Minion_scr : MonoBehaviour
                 {
                     hurtwindup = 0f;
                     gent.isStopped = false;
+                    anim.ResetTrigger("MeleeAttack");
                 }
 
                 if (hurtwindup > 2f)
